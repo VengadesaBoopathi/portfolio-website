@@ -1,0 +1,945 @@
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Source+Code+Pro:wght@500&display=swap');
+
+
+/*
+main intro page and side bar
+*/
+:root {
+    --primary-color: #040404;
+    --secondary-color: #6F6F6F;
+    --tertiary-color: hsl(0, 0%, 44%);
+    --white: #BFC1C2;
+    --lightgreen: rgb(62, 239, 62);
+    --red: #B40404;
+    --background-color: black;
+    --hover-background-color: white;
+    --text-color: var(--white);
+    --hover-text-color: var(--red);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Source Code Pro', monospace;
+}
+
+html {
+    background-color: var(--background-color);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.container {
+    display: flex;
+    width: 100%;
+    margin: 0;
+}
+
+.side-bar {
+    background-color: var(--white);
+    border: 2px solid red;
+    width: 25%;
+    display: none;
+    flex-direction: column;
+    overflow: hidden;
+    height: 100vh;
+    position: sticky;
+    top: 0;
+    z-index: 1;
+}
+
+.list {
+    list-style-type: none;
+    width: 100%;
+}
+
+.list li {
+    padding: 20px;
+    text-align: center;
+    position: sticky;
+    /* border-bottom: 2px solid red; */
+}
+
+.list a {
+    text-decoration: none;
+    font-size: 1.2rem;
+    text-transform: capitalize;
+    color: var(--red);
+    padding: 10% 30%;
+}
+
+li:hover {
+    background-color: var(--primary-color);
+    transform: scale(1.1, 1.1);
+    border: 2px dashed red;
+}
+
+li:hover a {
+    color: var(--lightgreen);
+}
+
+.header {
+    display: flex;
+    height: 80px;
+    border: 1px solid var(--primary-color);
+}
+
+.close-btn button {
+    background-color: var(--white);
+    height: 100%;
+    width: 100%;
+    border: 0px solid var(--white);
+}
+
+.image {
+    width: 75%;
+    height: 100%;
+}
+
+.close-btn {
+    height: 100%;
+    width: 25%;
+}
+
+.close-btn i {
+    color: var(--red);
+    font-size: 2rem;
+}
+
+.close-btn button:hover i {
+    transform: rotate(360deg);
+    transition: transform 1.3s ease;
+    color: var(--secondary-color);
+}
+
+.close-btn button i:hover {
+    transform: scale(1.2, 1.2);
+}
+
+img {
+    width: 100%;
+    height: 100%;
+}
+
+.open-btn {
+    display: block;
+    position: fixed;
+    top: 10px;
+    left: 20px;
+    padding: 5px;
+    background-color: transparent;
+    border-width: 0px;
+    transition: transform 0.3s ease;
+}
+
+.open-btn i {
+    color: var(--lightgreen);
+    font-size: 30px;
+}
+
+.open-btn:hover {
+    transform: scale(1.2, 1.2);
+}
+
+@media screen and (max-width: 768px) {
+    .side-bar {
+        width: 25%;
+    }
+}
+
+.main {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    background-color: #B40404;
+    background: url(background1.png) no-repeat center;
+    background-size: cover;
+}
+
+.main-content {
+    order: 2;
+    width: 70%;
+    height: 100vh;
+    margin-left: 50px;
+    display: flex;
+    flex-direction: column;
+}
+
+.photo {
+    order: 1;
+    position: relative;
+    top: 100px;
+    width: 30%;
+    height: 70vh;
+}
+
+#mypic {
+    width: 65%;
+    height: 65%;
+    margin-left: 100px;
+    margin-top: 50px;
+    border-radius: 20%;
+    /* box-shadow: 1px 1px 2px rgb(98, 67, 67), 0 0 25px var(--secondary-color), 0 0 5px darkblue; */
+    transition: transform 0.3s ease;
+}
+
+#mypic:hover {
+    transform: scale(1.1);
+}
+
+.intro {
+    margin-top: 160px;
+    margin-left: 10%;
+    margin-bottom: 10px;
+    font-size: 2rem;
+    /* background-color: var(--background-color); */
+    text-transform: capitalize;
+    font-family: 'Source Code Pro', monospace;
+    color: var(--red);
+    animation: fadeInUp 2s ease;
+    background-color: var(--background-color);
+}
+
+@keyframes fadeInUp {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.name {
+    background-color: var(--background-color);
+    margin-left: 10%;
+    margin-right: 10%;
+    border: 3px dashed var(--hover-background-color);
+    height: 50px;
+    position: relative;
+}
+
+.name p {
+    color: rgb(62, 239, 62);
+    font-size: 1.5rem;
+    text-align: center;
+    font-family: 'Press Start 2P', cursive;
+    text-transform: uppercase;
+    margin-left: 10%;
+    opacity: 0;
+    overflow: hidden;
+    animation: typing 6s steps(20) forwards;
+    position: absolute;
+    bottom: 8px;
+}
+
+@keyframes typing {
+    0% {
+        opacity: 0;
+        width: 0;
+    }
+
+    100% {
+        opacity: 1;
+        width: 85%;
+    }
+}
+
+.profession {
+    text-transform: capitalize;
+    background-color: var(--background-color);
+    margin-left: 10%;
+    font-family: 'Source Code Pro', monospace;
+    font-size: 1.5rem;
+    color: var(--red);
+    animation: fadeIn 2s ease;
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+.about {
+    background-color: var(--background-color);
+    font-family: 'Source Code Pro', monospace;
+    margin-left: 10%;
+    font-size: 1.3rem;
+    margin-bottom: 20px;
+    text-transform: capitalize;
+    color: var(--red);
+    animation: slideInLeft 2s ease;
+}
+
+@keyframes slideInLeft {
+    0% {
+        opacity: 0;
+        transform: translateX(-20px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.buttons {
+    margin-left: 10%;
+    margin-right: 10%;
+}
+
+.buttons button {
+    background-color: var(--white);
+    padding: 10px 20px;
+    border: 2px solid var(--lightgreen);
+    border-radius: 15px;
+    margin-right: 20px;
+    text-transform: capitalize;
+    animation: scaleIn 2s ease;
+}
+
+@keyframes scaleIn {
+    0% {
+        transform: scale(0);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+.buttons button:hover {
+    background-color: var(--primary-color);
+    transform: scale(1.1);
+    border-color: var(--red);
+    border-style: dashed;
+}
+
+.buttons button:hover a {
+    color: var(--lightgreen);
+}
+
+.buttons a {
+    text-decoration: none;
+    color: var(--red);
+    padding: 10px 20px;
+    font-family: 'Source Code Pro', monospace;
+    font-size: 1.1rem;
+}
+
+@media screen and (max-width: 768px) {
+
+    .container {
+        flex-direction: column;
+    }
+
+    .side-bar {
+        width: 100%;
+    }
+
+    .main {
+        flex-direction: column;
+        background-image: url("VERTICAL1.GIF");
+    }
+
+    .main-content {
+        width: 100%;
+        margin-left: 0;
+        order: 2;
+    }
+
+    .photo {
+        width: 100%;
+        height: 40%;
+        order: 1;
+        top: 100px;
+    }
+
+    .list a {
+        padding: 5% 15%;
+    }
+
+    .header {
+        height: 60px;
+    }
+
+    .close-btn i {
+        font-size: 1.5rem;
+    }
+
+    .intro {
+        font-size: 1.5rem;
+        margin-top: 50px;
+        margin-bottom: 0;
+    }
+
+    .name {
+        margin-left: 10px;
+        margin-right: 10px;
+    }
+
+    .name p {
+        margin-left: 5%;
+        font-size: 1rem;
+
+    }
+
+    .profession {
+        font-size: 1.2rem;
+        margin-left: 0%;
+        text-align: center;
+    }
+
+    .about {
+        font-size: 1rem;
+        text-align: center;
+        margin-left: 0%;
+    }
+
+    .buttons button {
+        padding: 8px 16px;
+        margin-right: 10px;
+    }
+
+    .buttons {
+        margin-right: 20px;
+        margin-left: 11%;
+    }
+
+    .buttons a {
+        font-size: 0.9rem;
+    }
+
+    #mypic {
+        width: 60%;
+        height: 60%;
+        margin-left: 20%;
+        margin-top: 0px;
+        border-radius: 20%;
+        background-color: #040404;
+        box-shadow: 1px 1px 2px rgb(98, 67, 67), 0 0 25px var(--secondary-color), 0 0 5px darkblue;
+    }
+
+}
+
+@media (min-width: 1024px) {
+    .container {
+        max-width: initial;
+    }
+}
+
+/*
+```
+``project css
+''
+*/
+.projectintro {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.proimg {
+    /* margin-top: 20px; */
+    background: url(project.gif) no-repeat center;
+    /* background-size: cover; */
+    height: 50%;
+}
+
+.prointro {
+    height: 50%;
+    /* background-color: #008CBA; */
+    font-size: 0.7rem;
+    text-align: center;
+    margin: 10px 20px;
+    text-transform: capitalize;
+    color: #f2f2f2;
+}
+
+.project-content {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 400vh;
+    background: url(background1.jpg) no-repeat center;
+    background-size: cover;
+}
+
+
+.box1 {
+    height: 16.6%;
+    width: 50%;
+    margin-left: 0%;
+    margin-bottom: 50px;
+    animation: fade-in 1s ease-in-out, slide-left 2s ease-in-out;
+}
+
+.box2 {
+    height: 16.6%;
+    width: 50%;
+    margin-left: 50%;
+    margin-bottom: 50px;
+    animation: fade-in 1s ease-in-out, slide-right 2s ease-in-out;
+}
+
+.project {
+    height: 100%;
+    width: 75%;
+    margin-left: 10%;
+    background-color: aqua;
+    position: relative;
+}
+
+@keyframes fade-in {
+    0% {
+        opacity: 0;
+        transform: translateX(20px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes slide-right {
+    0% {
+        opacity: 0;
+        transform: translateX(50px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes slide-left {
+    0% {
+        opacity: 0;
+        transform: translateX(-50px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.project img {
+    height: 100%;
+    width: 100%;
+}
+
+.overlays-right {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: #008CBA;
+    overflow: hidden;
+    width: 0;
+    height: 100%;
+    transition: .5s ease;
+}
+
+.overlays-left {
+    position: absolute;
+    bottom: 0;
+    left: 100%;
+    right: 0;
+    background-color: #008CBA;
+    overflow: hidden;
+    width: 0;
+    height: 100%;
+    transition: .5s ease;
+}
+
+.hover-text {
+    white-space: nowrap;
+    color: white;
+    font-size: 20px;
+    position: absolute;
+    overflow: hidden;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+}
+
+.project:hover .overlays-right {
+    width: 100%;
+}
+
+.project:hover .overlays-left {
+    width: 100%;
+    left: 0;
+}
+
+@media screen and (max-width:600px) {
+
+    .box1,
+    .box2 {
+        width: 100%;
+        margin-left: 0;
+        margin-right: 0;
+    }
+
+    .project-content {
+        height: 450vh;
+    }
+
+    .projectintro {
+        height: 150vh;
+    }
+}
+
+
+/*
+/
+/
+/skills css part
+/
+/
+/*/
+.skills {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    background: url(skillsbackground.gif) repeat center;
+    background-size: contain;
+}
+
+.skill_image {
+    height: 400px;
+    width: 100%;
+}
+
+.skill_image img {
+    height: 100%;
+    width: 100%;
+}
+
+.skills_list {
+    height: 230vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.frame {
+    height: 449px;
+    /* background-color:var(--primary-color); */
+    display: flex;
+    flex-direction: column;
+}
+
+.frame img {
+    height: 100%;
+    width: 100%;
+}
+
+.frame .container {
+    height: 60%;
+    /* margin-top: 100px; */
+    bottom: 0px;
+    margin-left: 200px;
+    margin-right: 200px;
+    width: auto;
+    border: 2px solid var(--red);
+}
+
+.frame .topic {
+    height: 20%;
+    margin-top: 50px;
+    background-color: var(--white);
+    border: 2px solid var(--red);
+    border-bottom: 0px;
+    margin-left: 200px;
+    margin-right: 200px;
+}
+
+.topic p {
+    font-size: 1.5rem;
+    text-transform: capitalize;
+    font-family: 'Source Code Pro', monospace;
+    font-weight: bold;
+    color: var(--red);
+    animation: fadeInUp 2s ease;
+    padding: 20px;
+    text-align: center;
+}
+
+.certification {
+    height: 70vh;
+    text-transform: capitalize;
+    color: white;
+    text-align: center;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+@media screen and (max-width:600px) {
+
+    .frame .topic,
+    .frame .container {
+        margin-left: 20px;
+        margin-right: 20px;
+    }
+}
+
+/*
+/
+/education css part
+/
+/
+*/
+
+
+.education {
+    height: 100vh;
+    width: 100%;
+    /* background-color: #008CBA; */
+    display: flex;
+    flex-direction: row;
+}
+
+.edu-details {
+    /* background-color: #040404; */
+    height: 90%;
+    width: 60%;
+    margin: 50px auto;
+    display: flex;
+    flex-direction: column;
+    order: 2;
+    font-size: 1.5 rem;
+    font-weight: bold;
+    text-align: center;
+    text-transform: capitalize;
+}
+
+#Course_name {
+    height: 20%;
+    /* background-color: #6F6F6F; */
+    margin-bottom: 10px;
+}
+
+.contents {
+    height: 10%;
+    width: 60%;
+    /* background-color: aqua; */
+    margin: 10px auto;
+}
+
+.next-btn,
+.prev-btn {
+    height: 90%;
+    width: 20%;
+    margin: 50px auto;
+    /* background-color: antiquewhite; */
+    display: flex;
+}
+
+.next,
+.prev {
+    height: 30%;
+    width: 50%;
+    /* background-color: var(--red); */
+    margin: 150px auto;
+}
+
+.next button,
+.prev button {
+    background-color: transparent;
+    border: 0px;
+    cursor: pointer;
+    color: beige;
+}
+
+.next i,
+.prev i {
+    height: 100%;
+    width: 100%;
+    font-size: 2rem;
+    padding: 40px;
+    /* bac */
+}
+
+.prev button:hover {
+    /* background-color: red; */
+}
+
+.next button:hover {
+    /* background-color: red; */
+}
+
+#Course_name p {
+    font-size: 2rem;
+    margin-top: 20px;
+    color: azure;
+}
+
+.edu-details p {
+    margin-top: 10px;
+    color: azure;
+}
+
+.edu-details h3 {
+    color: #008CBA;
+}
+
+@media screen and (max-width:600px) {
+    .edu-details {
+        font-size: 1rem;
+        width: 90%;
+    }
+
+    .contents {
+        width: 90%;
+        height: 13%;
+    }
+
+    .next i,
+    .prev i {
+        padding: 0%;
+    }
+
+    .next button,
+    .prev button {
+        margin-top: 100px;
+    }
+}
+
+/*
+/
+/
+/contact page
+/
+/
+*/
+.container1 {
+    background-color: #f2f2f2;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    height: 140vh;
+}
+
+.row {
+    display: flex;
+}
+
+.contactintro {
+    height: 40%;
+    width: 100%;
+    text-align: center;
+    margin-top: 50px;
+    font-size: 1rem;
+}
+
+.contacticon {
+    width: 50%;
+    float: right;
+    height: 80%;
+    margin-top: 50px;
+    display: flex;
+    flex-direction: column;
+    order: 1;
+}
+
+.contactimg {
+    height: 80%;
+}
+
+.contactbutton {
+    height: 20%;
+    background-color: transparent;
+}
+
+.contactform {
+    float: left;
+    width: 50%;
+    margin-top: 50px;
+    padding: 20px;
+    order: 2;
+}
+
+.contactbutton button {
+    padding: 40px 20px;
+    font-size: 2rem;
+    border: 0px;
+    margin-left: 50px;
+}
+
+input[type=text],
+select,
+textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    margin-top: 6px;
+    margin-bottom: 16px;
+    resize: vertical;
+}
+
+input[type=submit] {
+    background-color: #04AA6D;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    cursor: pointer;
+}
+
+input[type=submit]:hover {
+    background-color: #45a049;
+}
+
+@media screen and (max-width: 600px) {
+
+    .column,
+    input[type=submit] {
+        width: 100%;
+        margin-top: 0;
+    }
+
+    .row {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .contactintro {
+        height: 150px;
+    }
+
+    .contactform {
+        width: 100%;
+        order: 1;
+    }
+
+    .contacticon {
+        width: 100%;
+        height: 30%;
+        order: 2;
+    }
+
+    .container1 {
+        height: 200vh;
+    }
+
+    .contactbutton {
+        height: 10%
+    }
+
+    .contactbutton button {
+        margin-left: 20px;
+    }
+}
